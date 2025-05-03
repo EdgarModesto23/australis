@@ -19,7 +19,10 @@ include_directories(${PROJECT_SOURCE_DIR}/protocol)
 
 find_package(Seastar REQUIRED)
 
+find_package(Boost REQUIRED)
+
 # Add an executable target
 add_executable(australis main.cc)
 
+target_include_directories(australis PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(australis  Seastar::seastar)
